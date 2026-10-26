@@ -1,3 +1,6 @@
+const NABI_WHATSAPP = "5218332522060";
+const NABI_PHONE_DISPLAY = "+52 1 833 252 2060";
+
 const languagesData = {
     ingles: {
         name: "Inglés",
@@ -146,13 +149,13 @@ function selectLanguage(langKey) {
 
     // 1. Actualizar botones del Menú Dock
     document.querySelectorAll('.dock-btn').forEach(btn => {
-        btn.classList.remove('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md');
+        btn.classList.remove('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md', 'scale-105');
         btn.classList.add('text-[#FADCE4]', 'hover:bg-white/10');
     });
     const activeDock = document.getElementById(`dock-${langKey}`);
     if (activeDock) {
         activeDock.classList.remove('text-[#FADCE4]', 'hover:bg-white/10');
-        activeDock.classList.add('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md');
+        activeDock.classList.add('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md', 'scale-105');
     }
 
     // 2. Actualizar selección en las tarjetas Bento
@@ -184,13 +187,21 @@ function selectLanguage(langKey) {
     document.getElementById('panelStatCert').textContent = data.stats.cert;
 
     const ctaBtn = document.getElementById('panelCtaBtn');
-    ctaBtn.setAttribute('onclick', `openTrialWithLang('${data.name}')`);
-    ctaBtn.innerHTML = `<span>Inscribirme o Pedir Clase Muestra de ${data.name}</span><i class="fa-solid fa-arrow-right"></i>`;
+    if (ctaBtn) {
+        ctaBtn.setAttribute('onclick', `openTrialWithLang('${data.name}')`);
+        ctaBtn.innerHTML = `<i class="fa-solid fa-calendar-check"></i><span>Clase Muestra (${data.name})</span>`;
+    }
 
-    // Renderizar Sub-pestaña 1: Niveles
+    const waBtn = document.getElementById('panelWaBtn');
+    if (waBtn) {
+        waBtn.setAttribute('onclick', `openWhatsAppForLang('${data.name}', 'informes')`);
+        waBtn.innerHTML = `<i class="fa-brands fa-whatsapp text-base"></i><span>Informes de ${data.name}</span>`;
+    }
+
+    // Renderizar Sub-pestaña 1: Niveles con animación en cascada
     const levelsList = document.getElementById('levelsList');
-    levelsList.innerHTML = data.levels.map(lvl => `
-        <div class="p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 transition space-y-1.5">
+    levelsList.innerHTML = data.levels.map((lvl, idx) => `
+        <div style="animation-delay: ${idx * 75}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 hover:-translate-y-1 transition duration-300 space-y-1.5">
             <div class="flex items-center justify-between">
                 <span class="px-2.5 py-0.5 rounded-lg bg-[#46141D] text-[#FBDBAA] text-[11px] font-extrabold">${lvl.code}</span>
                 <i class="fa-solid fa-circle-check text-[#8C2D41] text-xs"></i>
@@ -200,10 +211,10 @@ function selectLanguage(langKey) {
         </div>
     `).join('');
 
-    // Renderizar Sub-pestaña 2: Modalidades
+    // Renderizar Sub-pestaña 2: Modalidades con animación en cascada
     const modalitiesList = document.getElementById('modalitiesList');
-    modalitiesList.innerHTML = data.modalities.map(mod => `
-        <div class="p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 flex items-start gap-3.5">
+    modalitiesList.innerHTML = data.modalities.map((mod, idx) => `
+        <div style="animation-delay: ${idx * 75}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 hover:-translate-y-1 transition duration-300 flex items-start gap-3.5">
             <div class="w-10 h-10 rounded-xl bg-[#FADCE4] text-[#46141D] flex items-center justify-center shrink-0 font-bold">
                 <i class="fa-solid ${mod.icon}"></i>
             </div>
@@ -217,10 +228,10 @@ function selectLanguage(langKey) {
         </div>
     `).join('');
 
-    // Renderizar Sub-pestaña 3: Ventajas y Certificación
+    // Renderizar Sub-pestaña 3: Ventajas y Certificación con animación en cascada
     const advantagesList = document.getElementById('advantagesList');
-    advantagesList.innerHTML = data.advantages.map(adv => `
-        <div class="p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 flex items-center gap-3.5">
+    advantagesList.innerHTML = data.advantages.map((adv, idx) => `
+        <div style="animation-delay: ${idx * 85}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 hover:translate-x-1 transition duration-300 flex items-center gap-3.5">
             <div class="w-8 h-8 rounded-full bg-[#46141D] text-[#EE9FB2] flex items-center justify-center shrink-0 text-xs">
                 <i class="fa-solid fa-star"></i>
             </div>
@@ -237,7 +248,15 @@ function switchSubTab(tabName) {
     });
 
     const targetContent = document.getElementById(`subcontent-${tabName}`);
-    if (targetContent) targetContent.classList.remove('hidden');
+    if (targetContent) {
+        targetContent.classList.remove('hidden');
+        // Re-trigger stagger animations inside the tab
+        targetContent.querySelectorAll('.stagger-item').forEach(item => {
+            item.classList.remove('stagger-item');
+            void item.offsetWidth;
+            item.classList.add('stagger-item');
+        });
+    }
 
     const activeBtn = document.getElementById(`subtab-${tabName}`);
     if (activeBtn) {
@@ -261,6 +280,8 @@ function filterBento(filterTag) {
         const tags = card.dataset.tags || '';
         if (tags.includes(filterTag)) {
             card.classList.remove('hidden');
+            card.classList.remove('panel-animate');
+            void card.offsetWidth;
             card.classList.add('panel-animate');
         } else {
             card.classList.add('hidden');
@@ -272,13 +293,108 @@ function speakCurrentPhrase() {
     const data = languagesData[currentLangKey];
     if (!data || !('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
+
+    const waveContainer = document.getElementById('soundWaveContainer');
+    const speakIcon = document.getElementById('speakIcon');
+    const speakLabel = document.getElementById('speakLabel');
+
     const utterance = new SpeechSynthesisUtterance(data.phraseRaw);
     utterance.lang = data.phraseLang;
     utterance.rate = 0.95;
+
+    utterance.onstart = () => {
+        if (waveContainer) {
+            waveContainer.classList.remove('hidden');
+            waveContainer.classList.add('inline-flex', 'speaking');
+        }
+        if (speakIcon) speakIcon.classList.add('hidden');
+        if (speakLabel) speakLabel.textContent = 'Escuchando';
+    };
+
+    const resetAudioUI = () => {
+        if (waveContainer) {
+            waveContainer.classList.add('hidden');
+            waveContainer.classList.remove('inline-flex', 'speaking');
+        }
+        if (speakIcon) speakIcon.classList.remove('hidden');
+        if (speakLabel) speakLabel.textContent = 'Escuchar';
+    };
+
+    utterance.onend = resetAudioUI;
+    utterance.onerror = resetAudioUI;
+
     window.speechSynthesis.speak(utterance);
 }
 
-// Control interactivo del menú blanco de Idiomas mediante su botón respectivo
+// ==========================================
+// CONEXIÓN DIRECTA CON WHATSAPP (+52 1 833 252 2060)
+// ==========================================
+function openWhatsAppForLang(langName, type) {
+    let text = '';
+    if (type === 'clase') {
+        text = `Hola Nabi Centro de Idiomas 🦋, me gustaría agendar mi Clase Muestra Gratis de ${langName}.`;
+    } else {
+        text = `Hola Nabi Centro de Idiomas 🦋, me gustaría recibir informes, horarios y costos del curso de ${langName}.`;
+    }
+    const url = `https://wa.me/${NABI_WHATSAPP}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener');
+}
+
+function copyPhoneNumber() {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(NABI_PHONE_DISPLAY).then(() => {
+            const label = document.getElementById('copyPhoneText');
+            if (label) {
+                label.textContent = '¡Copiado!';
+                setTimeout(() => { label.textContent = 'Copiar'; }, 2500);
+            }
+            showNotification(`Número ${NABI_PHONE_DISPLAY} copiado al portapapeles.`);
+        });
+    }
+}
+
+function handleDirectContactSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value.trim();
+    const type = document.getElementById('contactType').value;
+    const lang = document.getElementById('contactLang').value;
+    const modality = document.getElementById('contactModality').value;
+
+    const message = `Hola Nabi Centro de Idiomas 🦋, soy ${name}. Me gustaría ${type} de ${lang} en modalidad ${modality}.`;
+    const url = `https://wa.me/${NABI_WHATSAPP}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener');
+    showNotification(`Redirigiendo a WhatsApp (${NABI_PHONE_DISPLAY})...`);
+}
+
+function handleTrialSubmit(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById('trialNameInput');
+    const name = nameInput ? nameInput.value.trim() : '';
+    const lang = document.getElementById('trialLangSelect').value;
+    const modSelect = document.getElementById('trialModalitySelect');
+    const modality = modSelect ? modSelect.value : 'Online en Vivo';
+
+    closeModal('trialModal');
+    const message = `Hola Nabi Centro de Idiomas 🦋, soy ${name}. Quiero reservar mi Clase Muestra Gratis de ${lang} (${modality}).`;
+    const url = `https://wa.me/${NABI_WHATSAPP}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener');
+    showNotification(`¡Solicitud lista! Conectando al WhatsApp ${NABI_PHONE_DISPLAY}`);
+}
+
+function handleLevelSubmit(e) {
+    e.preventDefault();
+    const lang = document.getElementById('levelLangSelect').value;
+    const exp = document.getElementById('levelExpSelect').value;
+    closeModal('levelModal');
+    const message = `Hola Nabi Centro de Idiomas 🦋, hice el diagnóstico en la web para ${lang} (Nivel estimado: ${exp}) y me gustaría recibir informes o agendar mi evaluación.`;
+    const url = `https://wa.me/${NABI_WHATSAPP}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener');
+    showNotification(`Nivel sugerido en ${lang}: ${exp}. Conectando al ${NABI_PHONE_DISPLAY}`);
+}
+
+// ==========================================
+// CONTROL INTERACTIVO DEL MENÚ BLANCO DE IDIOMAS
+// ==========================================
 function toggleMegaMenu(e) {
     if (e) e.stopPropagation();
     const menu = document.getElementById('megaMenu');
@@ -325,6 +441,8 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeMegaMenu();
+        closeModal('trialModal');
+        closeModal('levelModal');
     }
 });
 
@@ -350,29 +468,46 @@ function closeModal(id) {
 
 function showNotification(message) {
     const toast = document.createElement('div');
-    toast.className = 'fixed bottom-6 right-6 z-50 bg-[#46141D] text-white px-6 py-4 rounded-2xl shadow-2xl border border-[#EE9FB2] flex items-center gap-3 panel-animate';
-    toast.innerHTML = `<span class="text-xl">🦋</span><span class="text-sm font-bold">${message}</span>`;
+    toast.className = 'fixed bottom-20 right-6 z-50 bg-[#46141D] text-white px-6 py-4 rounded-2xl shadow-2xl border border-[#EE9FB2] flex items-center gap-3 panel-animate';
+    toast.innerHTML = `<span class="text-xl">🦋</span><span class="text-xs sm:text-sm font-bold">${message}</span>`;
     document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 4000);
+    setTimeout(() => toast.remove(), 4200);
 }
 
-function handleTrialSubmit(e) {
-    e.preventDefault();
-    const lang = document.getElementById('trialLangSelect').value;
-    closeModal('trialModal');
-    showNotification(`¡Listo! Tu clase muestra de ${lang} en Nabi ha sido registrada.`);
+// ==========================================
+// INICIALIZAR ANIMACIONES MODERNAS (SCROLL REVEAL & SPOTLIGHT)
+// ==========================================
+function initModernAnimations() {
+    // 1. Scroll Reveal con IntersectionObserver
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(el => observer.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // 2. Efecto Spotlight interactivo siguiendo el cursor en tarjetas Bento
+    document.querySelectorAll('.lang-bento-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
 }
 
-function handleLevelSubmit(e) {
-    e.preventDefault();
-    const lang = document.getElementById('levelLangSelect').value;
-    const exp = document.getElementById('levelExpSelect').value;
-    closeModal('levelModal');
-    showNotification(`Nivel sugerido en ${lang}: ${exp}. ¡Agenda tu clase muestra gratis!`);
-}
-
-// Inicializar panel al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     closeMegaMenu();
     selectLanguage('ingles');
+    initModernAnimations();
 });

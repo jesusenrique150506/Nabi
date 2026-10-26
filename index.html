@@ -28,12 +28,32 @@
     </script>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body class="antialiased selection:bg-nabi-pink selection:text-nabi-wine">
 
+    <!-- Top Bar Informativa con Teléfono / WhatsApp de Contacto -->
+    <div class="bg-[#2C0B11] text-[#FADCE4] text-xs py-2 px-4 border-b border-[#631F2C]/70">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="font-semibold">Inscripciones Abiertas • Clases Presenciales y Online en Vivo</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20me%20gustar%C3%ADa%20pedir%20informes%20y%20agendar%20una%20clase%20muestra." target="_blank" rel="noopener" class="hover:text-[#FBDBAA] transition flex items-center gap-1.5 font-bold">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                    <span>Informes y Clases Muestra: +52 1 833 252 2060</span>
+                </a>
+                <a href="tel:+5218332522060" class="hidden sm:inline-flex items-center gap-1 hover:text-white transition">
+                    <i class="fa-solid fa-phone text-[10px] text-[#EE9FB2]"></i>
+                    <span>Llamar</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header / Navbar con Menú Desplegable Interactivo por Botón -->
-    <header class="sticky top-0 z-50 bg-[#46141D]/95 backdrop-blur-md border-b border-[#631F2C] shadow-lg">
+    <header class="sticky top-0 z-50 bg-[#46141D]/95 backdrop-blur-md border-b border-[#631F2C] shadow-lg transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo (Imagen Oficial Nabi) -->
             <a href="#inicio" class="flex items-center space-x-3 group focus:outline-none">
@@ -41,7 +61,7 @@
             </a>
             
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-2 lg:space-x-6 font-medium text-sm">
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-4 font-medium text-sm">
                 <a href="#inicio" class="px-3 py-2 rounded-xl text-[#FADCE4] hover:text-white hover:bg-white/10 transition">Inicio</a>
                 
                 <!-- Botón Interactivo de Idiomas + Menú Blanco Desplegable (Oculto por defecto) -->
@@ -131,27 +151,28 @@
                         <!-- Mega-Menu Footer -->
                         <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between bg-[#FDF8F9] -mx-6 -mb-6 px-6 py-3.5 rounded-b-3xl">
                             <div class="flex items-center gap-2 text-xs text-slate-600">
-                                <i class="fa-solid fa-wand-magic-sparkles text-[#46141D]"></i>
-                                <span>¿No sabes en qué nivel empezar?</span>
+                                <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+                                <span>Informes directos: <strong>+52 1 833 252 2060</strong></span>
                             </div>
                             <button type="button" onclick="openModal('levelModal'); closeMegaMenu();" class="text-xs font-bold text-[#46141D] bg-[#EE9FB2]/30 hover:bg-[#EE9FB2]/50 px-3 py-1.5 rounded-xl transition">
-                                Hacer Test de Ubicación Gratis →
+                                Hacer Test de Ubicación →
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <a href="#bento-idiomas" class="px-3 py-2 rounded-xl text-[#FADCE4] hover:text-white hover:bg-white/10 transition">Paneles de Cursos</a>
+                <a href="#bento-idiomas" class="px-3 py-2 rounded-xl text-[#FADCE4] hover:text-white hover:bg-white/10 transition">Paneles</a>
                 <a href="#metodologia" class="px-3 py-2 rounded-xl text-[#FADCE4] hover:text-white hover:bg-white/10 transition">Metodología</a>
-                <a href="#testimonios" class="px-3 py-2 rounded-xl text-[#FADCE4] hover:text-white hover:bg-white/10 transition">Comunidad</a>
+                <a href="#contacto" class="px-3 py-2 rounded-xl text-[#FADCE4] hover:text-white hover:bg-white/10 transition">Contacto</a>
             </nav>
 
             <!-- CTA Buttons -->
             <div class="hidden md:flex items-center space-x-3">
-                <button onclick="openModal('levelModal')" class="px-4 py-2.5 text-xs font-bold text-[#FBDBAA] border border-[#FBDBAA]/40 hover:bg-white/10 rounded-xl transition">
-                    <i class="fa-solid fa-layer-group mr-1.5"></i>Test de Nivel
-                </button>
-                <button onclick="openTrialWithLang('Inglés')" class="px-5 py-2.5 text-xs font-extrabold text-[#46141D] bg-[#EE9FB2] hover:bg-[#FADCE4] rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20quisiera%20pedir%20informes%20sobre%20sus%20cursos." target="_blank" rel="noopener" class="px-3.5 py-2.5 text-xs font-bold text-[#FBDBAA] border border-[#FBDBAA]/40 hover:bg-white/10 rounded-xl transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                    <span>Informes</span>
+                </a>
+                <button onclick="openTrialWithLang('Inglés')" class="btn-shimmer px-5 py-2.5 text-xs font-extrabold text-[#46141D] bg-[#EE9FB2] hover:bg-[#FADCE4] rounded-xl shadow-md transition transform hover:-translate-y-0.5">
                     Clase Muestra Gratis
                 </button>
             </div>
@@ -187,34 +208,39 @@
                 <a href="#inicio" onclick="toggleMobileMenu()" class="py-1.5 hover:text-white">Inicio</a>
                 <a href="#bento-idiomas" onclick="toggleMobileMenu()" class="py-1.5 hover:text-white">Paneles Comparativos</a>
                 <a href="#metodologia" onclick="toggleMobileMenu()" class="py-1.5 hover:text-white">Metodología Nabi</a>
-                <a href="#testimonios" onclick="toggleMobileMenu()" class="py-1.5 hover:text-white">Testimonios</a>
+                <a href="#contacto" onclick="toggleMobileMenu()" class="py-1.5 hover:text-white">Contacto (+52 1 833 252 2060)</a>
             </div>
             <div class="pt-2 flex flex-col space-y-2.5">
-                <button onclick="openModal('levelModal'); toggleMobileMenu();" class="w-full py-2.5 text-sm font-bold text-[#FBDBAA] border border-[#FBDBAA]/40 rounded-xl">Test de Nivel</button>
+                <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20me%20gustar%C3%ADa%20recibir%20informes." target="_blank" rel="noopener" class="w-full py-2.5 text-sm font-bold text-center text-[#FBDBAA] border border-[#FBDBAA]/40 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp: +52 1 833 252 2060
+                </a>
                 <button onclick="openTrialWithLang('Inglés'); toggleMobileMenu();" class="w-full py-2.5 text-sm font-extrabold text-[#46141D] bg-[#EE9FB2] rounded-xl">Clase Muestra Gratis</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section con la Imagen Oficial de Nabi Centro de Idiomas -->
+    <!-- Hero Section con la Imagen Oficial de Nabi Centro de Idiomas y Animaciones -->
     <section id="inicio" class="relative overflow-hidden py-14 lg:py-24 bg-[#46141D] text-white">
-        <!-- Ambient Background Glows -->
+        <!-- Ambient Background Glows & Mariposas Animadas -->
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#EE9FB2]/15 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-[#FBDBAA]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="hidden lg:block absolute top-16 right-16 text-3xl opacity-25 animate-butterfly pointer-events-none select-none">🦋</div>
+        <div class="hidden lg:block absolute bottom-16 left-12 text-2xl opacity-20 animate-butterfly pointer-events-none select-none" style="animation-delay: -3s;">🦋</div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Columna Texto Hero (7 cols) -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal reveal-left is-visible">
                     <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#EE9FB2]/30 text-[#FBDBAA] text-xs font-bold uppercase tracking-widest">
-                        <span>🦋 Nabi Centro de Idiomas</span>
+                        <span class="animate-butterfly inline-block">🦋</span>
+                        <span>Nabi Centro de Idiomas</span>
                         <span class="text-[#EE9FB2]">•</span>
                         <span>Inscripciones Abiertas</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif-nabi tracking-tight leading-[1.12] text-white">
-                        Transforma tu futuro hablando un <span class="text-[#EE9FB2] italic">nuevo idioma</span>
+                        Transforma tu futuro hablando un <span class="text-gradient-animated italic">nuevo idioma</span>
                     </h1>
 
                     <p class="text-base sm:text-lg text-[#FADCE4]/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -227,29 +253,29 @@
                             <i class="fa-solid fa-compass mr-1"></i> Menú rápido: Elige un idioma para abrir su panel
                         </p>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl mx-auto lg:mx-0">
-                            <a href="#panel-interactivo" onclick="selectLanguage('ingles')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition duration-200 shadow-sm">
-                                <span class="text-2xl">🇺🇸</span>
+                            <a href="#panel-interactivo" onclick="selectLanguage('ingles')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <span class="text-2xl group-hover:scale-110 transition">🇺🇸</span>
                                 <div class="text-left">
                                     <div class="font-extrabold text-sm leading-tight">Inglés</div>
                                     <div class="text-[11px] opacity-80">A1 a C2</div>
                                 </div>
                             </a>
-                            <a href="#panel-interactivo" onclick="selectLanguage('frances')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition duration-200 shadow-sm">
-                                <span class="text-2xl">🇫🇷</span>
+                            <a href="#panel-interactivo" onclick="selectLanguage('frances')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <span class="text-2xl group-hover:scale-110 transition">🇫🇷</span>
                                 <div class="text-left">
                                     <div class="font-extrabold text-sm leading-tight">Francés</div>
                                     <div class="text-[11px] opacity-80">DELF / DALF</div>
                                 </div>
                             </a>
-                            <a href="#panel-interactivo" onclick="selectLanguage('italiano')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition duration-200 shadow-sm">
-                                <span class="text-2xl">🇮🇹</span>
+                            <a href="#panel-interactivo" onclick="selectLanguage('italiano')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <span class="text-2xl group-hover:scale-110 transition">🇮🇹</span>
                                 <div class="text-left">
                                     <div class="font-extrabold text-sm leading-tight">Italiano</div>
                                     <div class="text-[11px] opacity-80">CILS / Cultura</div>
                                 </div>
                             </a>
-                            <a href="#panel-interactivo" onclick="selectLanguage('coreano')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition duration-200 shadow-sm">
-                                <span class="text-2xl">🇰🇷</span>
+                            <a href="#panel-interactivo" onclick="selectLanguage('coreano')" class="group flex items-center gap-2.5 p-3 rounded-2xl bg-white/10 hover:bg-[#EE9FB2] text-white hover:text-[#46141D] border border-white/15 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                                <span class="text-2xl group-hover:scale-110 transition">🇰🇷</span>
                                 <div class="text-left">
                                     <div class="font-extrabold text-sm leading-tight">Coreano</div>
                                     <div class="text-[11px] opacity-80">TOPIK I & II</div>
@@ -258,28 +284,28 @@
                         </div>
                     </div>
 
-                    <!-- Botones Principales -->
+                    <!-- Botones Principales + Contacto Directo -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-3">
-                        <button onclick="openTrialWithLang('Inglés')" class="w-full sm:w-auto px-8 py-4 bg-[#EE9FB2] hover:bg-[#FADCE4] text-[#46141D] font-extrabold rounded-2xl shadow-xl shadow-black/25 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <button onclick="openTrialWithLang('Inglés')" class="btn-shimmer w-full sm:w-auto px-8 py-4 bg-[#EE9FB2] hover:bg-[#FADCE4] text-[#46141D] font-extrabold rounded-2xl shadow-xl shadow-black/25 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-calendar-check"></i>
                             <span>Agendar Clase Muestra</span>
                         </button>
-                        <button type="button" onclick="toggleMegaMenu(event)" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/15 text-[#FBDBAA] font-bold border border-[#FBDBAA]/30 rounded-2xl transition text-center flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-bars-staggered text-xs"></i>
-                            <span>Abrir Menú de Programas</span>
-                        </button>
+                        <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20me%20gustar%C3%ADa%20pedir%20informes%20y%20horarios." target="_blank" rel="noopener" class="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/15 text-[#FBDBAA] font-bold border border-[#FBDBAA]/30 rounded-2xl transition transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                            <span>Informes: +52 1 833 252 2060</span>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Columna Imagen Oficial de la Página (5 cols) -->
-                <div class="lg:col-span-5 flex flex-col items-center">
+                <div class="lg:col-span-5 flex flex-col items-center reveal reveal-right is-visible">
                     <div class="relative w-full max-w-md animate-float">
                         <!-- Glow decorativo detrás de la imagen -->
                         <div class="absolute -inset-2 bg-gradient-to-tr from-[#EE9FB2]/40 via-[#FBDBAA]/30 to-[#EE9FB2]/40 rounded-[2.5rem] blur-xl opacity-75"></div>
                         
                         <!-- Contenedor Principal de la Imagen Nabi -->
-                        <div class="relative bg-[#46141D] rounded-[2.25rem] p-3 border-2 border-[#EE9FB2]/40 shadow-2xl overflow-hidden">
-                            <img src="logo.jpg" alt="Nabi Centro de Idiomas - Logo Oficial" class="w-full h-auto rounded-[1.75rem] object-cover shadow-inner">
+                        <div class="relative bg-[#46141D] rounded-[2.25rem] p-3 border-2 border-[#EE9FB2]/40 shadow-2xl overflow-hidden group">
+                            <img src="logo.jpg" alt="Nabi Centro de Idiomas - Logo Oficial" class="w-full h-auto rounded-[1.75rem] object-cover shadow-inner transition-transform duration-700 group-hover:scale-[1.03]">
                             
                             <!-- Tarjeta flotante inferior sobre la imagen -->
                             <div class="mt-3 bg-[#2C0B11]/90 backdrop-blur-md border border-[#EE9FB2]/25 rounded-2xl p-3.5 flex items-center justify-between">
@@ -292,7 +318,7 @@
                                     </div>
                                     <div>
                                         <p class="text-xs font-bold text-white">4 Idiomas Internacionales</p>
-                                        <p class="text-[11px] text-[#EE9FB2]">Modalidad Presencial y Online en Vivo</p>
+                                        <p class="text-[11px] text-[#EE9FB2]">Atención: +52 1 833 252 2060</p>
                                     </div>
                                 </div>
                                 <a href="#idiomas" class="w-9 h-9 rounded-xl bg-[#EE9FB2] text-[#46141D] flex items-center justify-center hover:bg-[#FBDBAA] transition">
@@ -304,6 +330,26 @@
                 </div>
 
             </div>
+
+            <!-- Barra de Estadísticas Animadas -->
+            <div class="mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal">
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <div class="text-3xl sm:text-4xl font-serif-nabi text-[#FBDBAA]"><span class="counter-val" data-target="4">4</span></div>
+                    <p class="text-xs text-[#FADCE4] mt-1 font-semibold">Idiomas con Certificación</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <div class="text-3xl sm:text-4xl font-serif-nabi text-[#EE9FB2]"><span class="counter-val" data-target="80">80</span>%</div>
+                    <p class="text-xs text-[#FADCE4] mt-1 font-semibold">Enfoque Conversacional</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <div class="text-3xl sm:text-4xl font-serif-nabi text-[#FBDBAA]">Máx. <span class="counter-val" data-target="8">8</span></div>
+                    <p class="text-xs text-[#FADCE4] mt-1 font-semibold">Alumnos por Grupo</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <div class="text-3xl sm:text-4xl font-serif-nabi text-[#EE9FB2]"><span class="counter-val" data-target="100">100</span>%</div>
+                    <p class="text-xs text-[#FADCE4] mt-1 font-semibold">Clases En Vivo & Prácticas</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -311,7 +357,7 @@
     <section id="idiomas" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
         
         <!-- Encabezado y Menú Dock Moderno -->
-        <div id="panel-interactivo" class="text-center max-w-3xl mx-auto space-y-5 scroll-mt-24">
+        <div id="panel-interactivo" class="text-center max-w-3xl mx-auto space-y-5 scroll-mt-24 reveal">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FADCE4] text-[#46141D] text-xs font-extrabold uppercase tracking-wider">
                 <i class="fa-solid fa-sliders"></i> Paneles y Menús Interactivos
             </div>
@@ -319,25 +365,25 @@
                 Idiomas que ofrecemos en <span class="italic text-[#8C2D41]">Nabi</span>
             </h2>
             <p class="text-slate-600 text-base sm:text-lg">
-                Selecciona cualquier idioma en nuestro menú interactivo para consultar sus niveles, horarios, certificaciones y escuchar una frase nativa.
+                Selecciona cualquier idioma en nuestro menú interactivo para consultar sus niveles, horarios, certificaciones y solicitar tu clase muestra o informes al <strong>+52 1 833 252 2060</strong>.
             </p>
 
             <!-- MENÚ MODERNO TIPO DOCK (Selector Principal de Idioma) -->
             <div class="pt-4 flex justify-center">
                 <div class="inline-flex flex-wrap sm:flex-nowrap items-center gap-2 p-2 bg-[#46141D] rounded-3xl shadow-xl border border-[#631F2C]">
-                    <button onclick="selectLanguage('ingles')" id="dock-ingles" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 bg-[#EE9FB2] text-[#46141D] shadow-md">
+                    <button onclick="selectLanguage('ingles')" id="dock-ingles" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-300 bg-[#EE9FB2] text-[#46141D] shadow-md">
                         <span class="text-xl">🇺🇸</span>
                         <span>Inglés</span>
                     </button>
-                    <button onclick="selectLanguage('frances')" id="dock-frances" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 text-[#FADCE4] hover:bg-white/10">
+                    <button onclick="selectLanguage('frances')" id="dock-frances" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-300 text-[#FADCE4] hover:bg-white/10">
                         <span class="text-xl">🇫🇷</span>
                         <span>Francés</span>
                     </button>
-                    <button onclick="selectLanguage('italiano')" id="dock-italiano" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 text-[#FADCE4] hover:bg-white/10">
+                    <button onclick="selectLanguage('italiano')" id="dock-italiano" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-300 text-[#FADCE4] hover:bg-white/10">
                         <span class="text-xl">🇮🇹</span>
                         <span>Italiano</span>
                     </button>
-                    <button onclick="selectLanguage('coreano')" id="dock-coreano" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-200 text-[#FADCE4] hover:bg-white/10">
+                    <button onclick="selectLanguage('coreano')" id="dock-coreano" class="dock-btn flex items-center gap-2.5 px-5 py-3 rounded-2xl font-bold text-sm transition-all duration-300 text-[#FADCE4] hover:bg-white/10">
                         <span class="text-xl">🇰🇷</span>
                         <span>Coreano</span>
                     </button>
@@ -346,13 +392,12 @@
         </div>
 
         <!-- PANEL MAESTRO INTERACTIVO (Se actualiza dinámicamente con sub-menús) -->
-        <div id="masterPanel" class="bg-white rounded-[2.25rem] border border-[#EE9FB2]/40 shadow-xl overflow-hidden panel-animate">
-            <!-- Contenido inyectado/actualizado por JS o renderizado inicialmente -->
+        <div id="masterPanel" class="bg-white rounded-[2.25rem] border border-[#EE9FB2]/40 shadow-xl overflow-hidden panel-animate reveal reveal-scale">
             <div class="grid lg:grid-cols-12">
                 
                 <!-- Columna Izquierda del Panel: Identidad del Idioma + Audio + CTA (5 cols) -->
                 <div id="panelSidebar" class="lg:col-span-5 bg-gradient-to-br from-[#46141D] via-[#5E1D29] to-[#2C0B11] text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -right-10 -bottom-10 text-[11rem] opacity-10 pointer-events-none select-none" id="panelBgFlag">🇺🇸</div>
+                    <div class="absolute -right-10 -bottom-10 text-[11rem] opacity-10 pointer-events-none select-none transition-transform duration-500" id="panelBgFlag">🇺🇸</div>
                     
                     <div class="space-y-6 relative z-10">
                         <div class="flex items-center justify-between">
@@ -371,14 +416,20 @@
                             Domina el idioma global desde las bases hasta un nivel ejecutivo. Clases 100% prácticas enfocadas en perder el miedo a hablar y lograr certificaciones internacionales.
                         </p>
 
-                        <!-- Tarjeta Interactiva de Expresión Nativa con Audio -->
+                        <!-- Tarjeta Interactiva de Expresión Nativa con Audio y Onda Animada -->
                         <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 space-y-2">
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] uppercase tracking-wider text-[#FBDBAA] font-bold">
                                     <i class="fa-solid fa-volume-high mr-1"></i> Expresión en clase
                                 </span>
-                                <button onclick="speakCurrentPhrase()" class="px-3 py-1 rounded-xl bg-[#EE9FB2] text-[#46141D] text-xs font-extrabold hover:bg-[#FBDBAA] transition flex items-center gap-1.5">
-                                    <i class="fa-solid fa-play text-[10px]"></i> Escuchar
+                                <button id="speakBtn" onclick="speakCurrentPhrase()" class="px-3 py-1 rounded-xl bg-[#EE9FB2] text-[#46141D] text-xs font-extrabold hover:bg-[#FBDBAA] transition flex items-center gap-1.5">
+                                    <i class="fa-solid fa-play text-[10px]" id="speakIcon"></i>
+                                    <span id="speakLabel">Escuchar</span>
+                                    <span id="soundWaveContainer" class="hidden items-center gap-0.5 ml-1 h-3.5">
+                                        <span class="wave-bar"></span>
+                                        <span class="wave-bar"></span>
+                                        <span class="wave-bar"></span>
+                                    </span>
                                 </button>
                             </div>
                             <p id="panelPhraseNative" class="text-lg font-bold text-white">"Unlock your world, one conversation at a time."</p>
@@ -386,8 +437,8 @@
                         </div>
                     </div>
 
-                    <!-- Estadísticas Rápidas y Botón de Inscripción -->
-                    <div class="pt-8 space-y-5 relative z-10">
+                    <!-- Estadísticas Rápidas y Botones de Clase Muestra + WhatsApp -->
+                    <div class="pt-8 space-y-4 relative z-10">
                         <div class="grid grid-cols-3 gap-2 text-center bg-black/20 rounded-2xl p-3 border border-white/10">
                             <div>
                                 <div class="text-xs text-[#EE9FB2]">Niveles</div>
@@ -403,10 +454,16 @@
                             </div>
                         </div>
 
-                        <button id="panelCtaBtn" onclick="openTrialWithLang('Inglés')" class="w-full py-4 bg-[#EE9FB2] hover:bg-[#FBDBAA] text-[#46141D] font-extrabold rounded-2xl shadow-lg transition flex items-center justify-center gap-2">
-                            <span>Inscribirme o Pedir Clase Muestra de Inglés</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
+                        <div class="grid sm:grid-cols-2 gap-2.5">
+                            <button id="panelCtaBtn" onclick="openTrialWithLang('Inglés')" class="btn-shimmer w-full py-3.5 px-4 bg-[#EE9FB2] hover:bg-[#FBDBAA] text-[#46141D] font-extrabold text-xs sm:text-sm rounded-2xl shadow-lg transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span>Clase Muestra</span>
+                            </button>
+                            <button id="panelWaBtn" onclick="openWhatsAppForLang('Inglés', 'informes')" class="w-full py-3.5 px-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs sm:text-sm rounded-2xl shadow-lg transition flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>Pedir Informes</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -433,7 +490,7 @@
                         <div id="subcontent-niveles" class="subcontent space-y-4">
                             <h4 class="text-lg font-extrabold text-[#46141D]">Ruta de Aprendizaje por Niveles</h4>
                             <div id="levelsList" class="grid sm:grid-cols-2 gap-3.5">
-                                <!-- Se llena dinámicamente según el idioma -->
+                                <!-- Se llena dinámicamente con animación en cascada -->
                             </div>
                         </div>
 
@@ -441,7 +498,7 @@
                         <div id="subcontent-modalidades" class="subcontent hidden space-y-4">
                             <h4 class="text-lg font-extrabold text-[#46141D]">Modalidades Flexibles para tu Ritmo</h4>
                             <div id="modalitiesList" class="grid sm:grid-cols-2 gap-3.5">
-                                <!-- Se llena dinámicamente según el idioma -->
+                                <!-- Se llena dinámicamente con animación en cascada -->
                             </div>
                         </div>
 
@@ -449,20 +506,20 @@
                         <div id="subcontent-ventajas" class="subcontent hidden space-y-4">
                             <h4 class="text-lg font-extrabold text-[#46141D]">Preparación Oficial e Inmersión Cultural</h4>
                             <div id="advantagesList" class="space-y-3">
-                                <!-- Se llena dinámicamente según el idioma -->
+                                <!-- Se llena dinámicamente con animación en cascada -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Footer del Panel Derecho -->
+                    <!-- Footer del Panel Derecho con Contacto Directo -->
                     <div class="mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#FDF8F9] p-4 rounded-2xl">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-[#46141D] text-[#EE9FB2] flex items-center justify-center font-bold">
-                                <i class="fa-solid fa-graduation-cap"></i>
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
                             </div>
                             <div>
-                                <p class="text-xs font-extrabold text-[#46141D]">¿Ya tienes conocimientos previos?</p>
-                                <p class="text-xs text-slate-500">Realiza nuestro diagnóstico sin costo y entra directo a tu nivel.</p>
+                                <p class="text-xs font-extrabold text-[#46141D]">Atención directa por WhatsApp: +52 1 833 252 2060</p>
+                                <p class="text-xs text-slate-500">Pregunta por promociones, costos o solicita tu test de ubicación sin costo.</p>
                             </div>
                         </div>
                         <button onclick="openModal('levelModal')" class="shrink-0 px-4 py-2.5 rounded-xl bg-white border border-[#46141D]/20 text-xs font-extrabold text-[#46141D] hover:bg-[#46141D] hover:text-white transition">
@@ -475,7 +532,7 @@
         </div>
 
         <!-- CUADRÍCULA BENTO DE PANELES MODERNOS (Los 4 idiomas en tarjetas comparativas) -->
-        <div id="bento-idiomas" class="pt-6 scroll-mt-24 space-y-8">
+        <div id="bento-idiomas" class="pt-6 scroll-mt-24 space-y-8 reveal">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <span class="text-xs font-extrabold uppercase tracking-wider text-[#8C2D41]">Vista General de Programas</span>
@@ -495,7 +552,7 @@
                 
                 <!-- Panel 1: INGLÉS -->
                 <div id="card-ingles" data-tags="todos negocios certificacion" class="lang-bento-card selected-card bg-white rounded-3xl p-6 border border-slate-200 flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
+                    <div class="space-y-4 relative z-10">
                         <div class="flex items-center justify-between">
                             <span class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-3xl shadow-sm">🇺🇸</span>
                             <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-blue-100 text-blue-900">MCER A1 - C2</span>
@@ -507,7 +564,6 @@
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Comunicación fluida para el mundo laboral, viajes internacionales y preparación TOEFL, IELTS y Cambridge.
                         </p>
-                        <!-- Chips de Modalidades -->
                         <div class="flex flex-wrap gap-1.5 pt-1">
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Conversacional</span>
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Business</span>
@@ -515,19 +571,24 @@
                         </div>
                     </div>
 
-                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2">
+                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2 relative z-10">
                         <a href="#panel-interactivo" onclick="selectLanguage('ingles')" class="w-full py-2.5 px-4 rounded-xl bg-[#FDF8F9] hover:bg-[#FADCE4] text-[#46141D] font-bold text-xs flex items-center justify-center gap-1.5 transition">
                             <i class="fa-solid fa-expand text-[10px]"></i> Ver temario en panel
                         </a>
-                        <button onclick="openTrialWithLang('Inglés')" class="w-full py-2.5 px-4 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
-                            Solicitar Clase Muestra
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openTrialWithLang('Inglés')" class="py-2.5 px-3 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
+                                Clase Muestra
+                            </button>
+                            <button onclick="openWhatsAppForLang('Inglés', 'informes')" class="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs flex items-center justify-center gap-1 transition">
+                                <i class="fa-brands fa-whatsapp"></i> Informes
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Panel 2: FRANCÉS -->
                 <div id="card-frances" data-tags="todos negocios cultura certificacion" class="lang-bento-card bg-white rounded-3xl p-6 border border-slate-200 flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
+                    <div class="space-y-4 relative z-10">
                         <div class="flex items-center justify-between">
                             <span class="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-3xl shadow-sm">🇫🇷</span>
                             <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-indigo-100 text-indigo-900">DELF / DALF</span>
@@ -539,7 +600,6 @@
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Domina la pronunciación francesa, accede a intercambios en Francia, Canadá o Bélgica y certifícate oficialmente.
                         </p>
-                        <!-- Chips de Modalidades -->
                         <div class="flex flex-wrap gap-1.5 pt-1">
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Fonética Nativa</span>
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Intercambios</span>
@@ -547,19 +607,24 @@
                         </div>
                     </div>
 
-                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2">
+                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2 relative z-10">
                         <a href="#panel-interactivo" onclick="selectLanguage('frances')" class="w-full py-2.5 px-4 rounded-xl bg-[#FDF8F9] hover:bg-[#FADCE4] text-[#46141D] font-bold text-xs flex items-center justify-center gap-1.5 transition">
                             <i class="fa-solid fa-expand text-[10px]"></i> Ver temario en panel
                         </a>
-                        <button onclick="openTrialWithLang('Francés')" class="w-full py-2.5 px-4 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
-                            Solicitar Clase Muestra
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openTrialWithLang('Francés')" class="py-2.5 px-3 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
+                                Clase Muestra
+                            </button>
+                            <button onclick="openWhatsAppForLang('Francés', 'informes')" class="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs flex items-center justify-center gap-1 transition">
+                                <i class="fa-brands fa-whatsapp"></i> Informes
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Panel 3: ITALIANO -->
                 <div id="card-italiano" data-tags="todos cultura certificacion" class="lang-bento-card bg-white rounded-3xl p-6 border border-slate-200 flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
+                    <div class="space-y-4 relative z-10">
                         <div class="flex items-center justify-between">
                             <span class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-3xl shadow-sm">🇮🇹</span>
                             <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-emerald-100 text-emerald-900">CILS / CELI</span>
@@ -571,7 +636,6 @@
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Conecta con la cultura italiana a través del arte, la gastronomía, trámites de ciudadanía y conversación espontánea.
                         </p>
-                        <!-- Chips de Modalidades -->
                         <div class="flex flex-wrap gap-1.5 pt-1">
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Ciudadanía B1</span>
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Viajeros</span>
@@ -579,19 +643,24 @@
                         </div>
                     </div>
 
-                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2">
+                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2 relative z-10">
                         <a href="#panel-interactivo" onclick="selectLanguage('italiano')" class="w-full py-2.5 px-4 rounded-xl bg-[#FDF8F9] hover:bg-[#FADCE4] text-[#46141D] font-bold text-xs flex items-center justify-center gap-1.5 transition">
                             <i class="fa-solid fa-expand text-[10px]"></i> Ver temario en panel
                         </a>
-                        <button onclick="openTrialWithLang('Italiano')" class="w-full py-2.5 px-4 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
-                            Solicitar Clase Muestra
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openTrialWithLang('Italiano')" class="py-2.5 px-3 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
+                                Clase Muestra
+                            </button>
+                            <button onclick="openWhatsAppForLang('Italiano', 'informes')" class="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs flex items-center justify-center gap-1 transition">
+                                <i class="fa-brands fa-whatsapp"></i> Informes
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Panel 4: COREANO -->
                 <div id="card-coreano" data-tags="todos cultura negocios certificacion" class="lang-bento-card bg-white rounded-3xl p-6 border border-slate-200 flex flex-col justify-between relative overflow-hidden">
-                    <div class="space-y-4">
+                    <div class="space-y-4 relative z-10">
                         <div class="flex items-center justify-between">
                             <span class="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-3xl shadow-sm">🇰🇷</span>
                             <span class="px-3 py-1 rounded-full text-[11px] font-extrabold bg-rose-100 text-rose-900">TOPIK I & II</span>
@@ -606,7 +675,6 @@
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Nuestro idioma insignia ("Nabi" significa mariposa en coreano 🦋). Aprende desde lectura Hangul hasta nivel avanzado.
                         </p>
-                        <!-- Chips de Modalidades -->
                         <div class="flex flex-wrap gap-1.5 pt-1">
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">Hangul desde 0</span>
                             <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">K-Culture</span>
@@ -614,13 +682,18 @@
                         </div>
                     </div>
 
-                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2">
+                    <div class="pt-6 mt-6 border-t border-slate-100 space-y-2 relative z-10">
                         <a href="#panel-interactivo" onclick="selectLanguage('coreano')" class="w-full py-2.5 px-4 rounded-xl bg-[#FDF8F9] hover:bg-[#FADCE4] text-[#46141D] font-bold text-xs flex items-center justify-center gap-1.5 transition">
                             <i class="fa-solid fa-expand text-[10px]"></i> Ver temario en panel
                         </a>
-                        <button onclick="openTrialWithLang('Coreano')" class="w-full py-2.5 px-4 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
-                            Solicitar Clase Muestra
-                        </button>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="openTrialWithLang('Coreano')" class="py-2.5 px-3 rounded-xl bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-bold text-xs transition">
+                                Clase Muestra
+                            </button>
+                            <button onclick="openWhatsAppForLang('Coreano', 'informes')" class="py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs flex items-center justify-center gap-1 transition">
+                                <i class="fa-brands fa-whatsapp"></i> Informes
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -630,16 +703,16 @@
     </section>
 
     <!-- Sección Metodología Nabi -->
-    <section id="metodologia" class="py-20 bg-[#46141D] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="text-center max-w-2xl mx-auto space-y-3">
+    <section id="metodologia" class="py-20 bg-[#46141D] text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
+            <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
                 <span class="text-xs font-extrabold uppercase tracking-widest text-[#EE9FB2]">¿Por qué elegir Nabi?</span>
                 <h2 class="text-3xl sm:text-4xl font-serif-nabi text-white">Metodología diseñada para hablar con seguridad</h2>
                 <p class="text-[#FADCE4]/80 text-sm sm:text-base">Combinamos estructura académica con inmersión cultural para que avances de nivel con naturalidad.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white/5 border border-[#EE9FB2]/20 rounded-3xl p-7 space-y-3 hover:bg-white/10 transition">
+                <div class="reveal delay-100 bg-white/5 border border-[#EE9FB2]/20 rounded-3xl p-7 space-y-3 hover:bg-white/10 hover:-translate-y-1.5 transition duration-300">
                     <div class="w-12 h-12 rounded-2xl bg-[#EE9FB2] text-[#46141D] flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-comments"></i>
                     </div>
@@ -647,7 +720,7 @@
                     <p class="text-sm text-[#FADCE4]/85 leading-relaxed">Practicas situaciones reales desde la primera semana en grupos pequeños donde todos participan activamente.</p>
                 </div>
 
-                <div class="bg-white/5 border border-[#EE9FB2]/20 rounded-3xl p-7 space-y-3 hover:bg-white/10 transition">
+                <div class="reveal delay-200 bg-white/5 border border-[#EE9FB2]/20 rounded-3xl p-7 space-y-3 hover:bg-white/10 hover:-translate-y-1.5 transition duration-300">
                     <div class="w-12 h-12 rounded-2xl bg-[#FBDBAA] text-[#46141D] flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-laptop-file"></i>
                     </div>
@@ -655,7 +728,7 @@
                     <p class="text-sm text-[#FADCE4]/85 leading-relaxed">Acceso a recursos multimedia, clubes de conversación y simuladores para exámenes oficiales (TOEFL, DELF, CILS, TOPIK).</p>
                 </div>
 
-                <div class="bg-white/5 border border-[#EE9FB2]/20 rounded-3xl p-7 space-y-3 hover:bg-white/10 transition">
+                <div class="reveal delay-300 bg-white/5 border border-[#EE9FB2]/20 rounded-3xl p-7 space-y-3 hover:bg-white/10 hover:-translate-y-1.5 transition duration-300">
                     <div class="w-12 h-12 rounded-2xl bg-[#EE9FB2] text-[#46141D] flex items-center justify-center text-xl font-bold">
                         <i class="fa-solid fa-earth-asia"></i>
                     </div>
@@ -668,13 +741,13 @@
 
     <!-- Sección Testimonios -->
     <section id="testimonios" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
             <span class="text-xs font-extrabold uppercase tracking-widest text-[#8C2D41]">Comunidad Nabi 🦋</span>
             <h2 class="text-3xl sm:text-4xl font-serif-nabi text-[#46141D]">Lo que dicen nuestros estudiantes</h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white p-7 rounded-3xl border border-[#EE9FB2]/30 shadow-sm space-y-4">
+            <div class="reveal delay-100 bg-white p-7 rounded-3xl border border-[#EE9FB2]/30 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 space-y-4">
                 <div class="flex items-center justify-between">
                     <span class="text-amber-400 text-sm">★★★★★</span>
                     <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-rose-50 text-rose-800">🇰🇷 Coreano TOPIK</span>
@@ -683,7 +756,7 @@
                 <div class="font-bold text-sm text-[#46141D]">— Valeria M.</div>
             </div>
 
-            <div class="bg-white p-7 rounded-3xl border border-[#EE9FB2]/30 shadow-sm space-y-4">
+            <div class="reveal delay-200 bg-white p-7 rounded-3xl border border-[#EE9FB2]/30 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 space-y-4">
                 <div class="flex items-center justify-between">
                     <span class="text-amber-400 text-sm">★★★★★</span>
                     <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-50 text-blue-800">🇺🇸 Inglés Ejecutivo</span>
@@ -692,7 +765,7 @@
                 <div class="font-bold text-sm text-[#46141D]">— Alejandro R.</div>
             </div>
 
-            <div class="bg-white p-7 rounded-3xl border border-[#EE9FB2]/30 shadow-sm space-y-4">
+            <div class="reveal delay-300 bg-white p-7 rounded-3xl border border-[#EE9FB2]/30 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition duration-300 space-y-4">
                 <div class="flex items-center justify-between">
                     <span class="text-amber-400 text-sm">★★★★★</span>
                     <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-800">🇫🇷 Francés DELF B2</span>
@@ -703,7 +776,112 @@
         </div>
     </section>
 
-    <!-- Footer con Identidad Nabi -->
+    <!-- NUEVA SECCIÓN: Medios de Contacto (Clases Muestra e Informes) -->
+    <section id="contacto" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-20">
+        <div class="bg-gradient-to-br from-[#46141D] via-[#5E1D29] to-[#2C0B11] rounded-[2.5rem] p-8 sm:p-12 lg:p-14 text-white shadow-2xl border border-[#EE9FB2]/30 relative overflow-hidden reveal">
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-[#EE9FB2]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                <!-- Columna Izquierda: Información de Contacto Directo -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#EE9FB2]/30 text-[#FBDBAA] text-xs font-extrabold uppercase tracking-wider">
+                        <i class="fa-solid fa-headset"></i> Medios de Contacto Oficiales
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif-nabi text-white leading-tight">
+                        ¿Listo para tu <span class="text-[#EE9FB2] italic">Clase Muestra</span> o necesitas informes?
+                    </h2>
+                    <p class="text-[#FADCE4]/90 text-sm sm:text-base leading-relaxed">
+                        Contáctanos directamente por WhatsApp o llamada telefónica. Te ayudamos a elegir el horario, modalidad y nivel ideal para ti en <strong>Inglés, Francés, Italiano o Coreano</strong>.
+                    </p>
+
+                    <!-- Tarjeta Principal del Número +52 1 833 252 2060 -->
+                    <div class="bg-white/10 backdrop-blur-md border border-[#EE9FB2]/35 rounded-3xl p-6 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-500 text-slate-950 flex items-center justify-center text-3xl shrink-0 shadow-lg">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs uppercase tracking-wider text-[#FBDBAA] font-bold">WhatsApp y Teléfono Directo</span>
+                                    <div class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">+52 1 833 252 2060</div>
+                                    <span class="text-xs text-[#FADCE4]">Clases Muestra • Informes • Inscripciones</span>
+                                </div>
+                            </div>
+                            <button type="button" onclick="copyPhoneNumber()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-[#FBDBAA] border border-white/15 transition flex items-center gap-1.5 self-start sm:self-center">
+                                <i class="fa-regular fa-copy"></i>
+                                <span id="copyPhoneText">Copiar</span>
+                            </button>
+                        </div>
+
+                        <!-- Botones de Acción Rápida a WhatsApp y Llamada -->
+                        <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                            <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20quiero%20agendar%20una%20Clase%20Muestra%20Gratis." target="_blank" rel="noopener" class="btn-shimmer py-3.5 px-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition transform hover:-translate-y-0.5">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>WhatsApp Clase Muestra</span>
+                            </a>
+                            <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20me%20gustar%C3%ADa%20solicitar%20informes%2C%20horarios%20y%20costos." target="_blank" rel="noopener" class="py-3.5 px-4 rounded-2xl bg-[#EE9FB2] hover:bg-[#FADCE4] text-[#46141D] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Solicitar Informes</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Formulario Directo a WhatsApp (+52 1 833 252 2060) -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white text-slate-800 rounded-3xl p-7 sm:p-8 shadow-xl space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8C2D41]">Envío inmediato por WhatsApp</span>
+                                <h3 class="text-2xl font-serif-nabi text-[#46141D]">Solicita Informes o tu Clase Muestra</h3>
+                            </div>
+                            <span class="text-2xl">🦋</span>
+                        </div>
+
+                        <form onsubmit="handleDirectContactSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Tu nombre</label>
+                                <input id="contactName" type="text" placeholder="Ej. Andrea Martínez" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">¿Qué deseas solicitar?</label>
+                                    <select id="contactType" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm font-semibold text-[#46141D] focus:outline-none focus:border-[#46141D]">
+                                        <option value="agendar una Clase Muestra Gratis">✨ Clase Muestra Gratis</option>
+                                        <option value="pedir Informes, Horarios y Costos">📋 Informes y Costos</option>
+                                        <option value="hacer mi Test de Ubicación">🎯 Test de Ubicación</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Idioma de interés</label>
+                                    <select id="contactLang" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm font-semibold text-[#46141D] focus:outline-none focus:border-[#46141D]">
+                                        <option value="Inglés">🇺🇸 Inglés</option>
+                                        <option value="Francés">🇫🇷 Francés</option>
+                                        <option value="Italiano">🇮🇹 Italiano</option>
+                                        <option value="Coreano">🇰🇷 Coreano</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad preferida</label>
+                                <select id="contactModality" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
+                                    <option value="Online en Vivo">💻 Online en Vivo</option>
+                                    <option value="Presencial">🏫 Presencial</option>
+                                    <option value="Sabatino Intensivo">📅 Sabatino Intensivo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-shimmer w-full py-4 bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-extrabold rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                                <span>Enviar Mensaje al +52 1 833 252 2060</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer con Identidad Nabi y Medios de Contacto -->
     <footer class="bg-[#2C0B11] text-[#FADCE4]/80 py-14 border-t border-[#631F2C]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
@@ -711,37 +889,47 @@
                 <div>
                     <h4 class="font-serif-nabi text-xl text-white">Nabi Centro de Idiomas</h4>
                     <p class="text-xs text-[#EE9FB2]">Inglés • Francés • Italiano • Coreano</p>
+                    <a href="https://wa.me/5218332522060" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs text-[#FBDBAA] font-bold mt-1 hover:underline">
+                        <i class="fa-brands fa-whatsapp text-emerald-400"></i> +52 1 833 252 2060
+                    </a>
                 </div>
             </div>
             <div class="flex flex-wrap justify-center gap-6 text-xs font-semibold">
                 <a href="#inicio" class="hover:text-white transition">Inicio</a>
                 <a href="#panel-interactivo" class="hover:text-white transition">Paneles de Idiomas</a>
                 <a href="#metodologia" class="hover:text-white transition">Metodología</a>
+                <a href="#contacto" class="hover:text-white transition">Contacto</a>
                 <button onclick="openModal('levelModal')" class="hover:text-white transition">Test de Nivel</button>
             </div>
             <div class="text-xs text-center md:text-right text-[#FADCE4]/60">
-                &copy; 2026 Nabi Centro de Idiomas.<br>Todos los derechos reservados.
+                &copy; 2026 Nabi Centro de Idiomas.<br>Clases Muestra e Informes: +52 1 833 252 2060
             </div>
         </div>
     </footer>
 
-    <!-- Modal 1: Reserva tu Clase Muestra -->
+    <!-- Botón Flotante de WhatsApp (+52 1 833 252 2060) -->
+    <a href="https://wa.me/5218332522060?text=Hola%20Nabi%20Centro%20de%20Idiomas%20%F0%9F%A6%8B%2C%20me%20gustar%C3%ADa%20recibir%20informes%20o%20agendar%20una%20clase%20muestra." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp al +52 1 833 252 2060" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-4 py-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 group whatsapp-fab">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="hidden sm:inline text-xs pr-1">Informes / Clase Muestra</span>
+    </a>
+
+    <!-- Modal 1: Reserva tu Clase Muestra (Conectado a WhatsApp +52 1 833 252 2060) -->
     <div id="trialModal" class="fixed inset-0 z-50 hidden bg-[#2C0B11]/75 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-lg rounded-3xl p-7 relative space-y-5 border border-[#EE9FB2] shadow-2xl">
+        <div class="bg-white w-full max-w-lg rounded-3xl p-7 relative space-y-5 border border-[#EE9FB2] shadow-2xl panel-animate">
             <button onclick="closeModal('trialModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="flex items-center gap-3">
                 <img src="logo.jpg" alt="Nabi" class="w-12 h-12 rounded-xl object-cover">
                 <div>
-                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8C2D41]">Nabi Centro de Idiomas</span>
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8C2D41]">Atención: +52 1 833 252 2060</span>
                     <h3 class="text-2xl font-serif-nabi text-[#46141D]">Reserva tu Clase Muestra</h3>
                 </div>
             </div>
             <form onsubmit="handleTrialSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">Nombre completo</label>
-                    <input type="text" placeholder="Ej. Mariana López" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
+                    <input id="trialNameInput" type="text" placeholder="Ej. Mariana López" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
                 </div>
                 <div class="grid sm:grid-cols-2 gap-3">
                     <div>
@@ -755,19 +943,16 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad preferida</label>
-                        <select class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
-                            <option>Online en Vivo</option>
-                            <option>Presencial</option>
-                            <option>Sabatino Intensivo</option>
+                        <select id="trialModalitySelect" class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
+                            <option value="Online en Vivo">Online en Vivo</option>
+                            <option value="Presencial">Presencial</option>
+                            <option value="Sabatino Intensivo">Sabatino Intensivo</option>
                         </select>
                     </div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp o Correo electrónico</label>
-                    <input type="text" placeholder="Para enviarte tu acceso a la clase" required class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#46141D]">
-                </div>
-                <button type="submit" class="w-full py-3.5 bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-extrabold rounded-xl shadow-lg transition">
-                    Confirmar mi Clase Muestra Gratis
+                <button type="submit" class="btn-shimmer w-full py-3.5 bg-[#46141D] hover:bg-[#5E1D29] text-[#FBDBAA] font-extrabold rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                    <span>Confirmar por WhatsApp (+52 1 833 252 2060)</span>
                 </button>
             </form>
         </div>
@@ -775,12 +960,12 @@
 
     <!-- Modal 2: Test de Nivel Rápido -->
     <div id="levelModal" class="fixed inset-0 z-50 hidden bg-[#2C0B11]/75 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-lg rounded-3xl p-7 relative space-y-5 border border-[#EE9FB2] shadow-2xl">
+        <div class="bg-white w-full max-w-lg rounded-3xl p-7 relative space-y-5 border border-[#EE9FB2] shadow-2xl panel-animate">
             <button onclick="closeModal('levelModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div>
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8C2D41]">Diagnóstico sin costo</span>
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8C2D41]">Diagnóstico sin costo • +52 1 833 252 2060</span>
                 <h3 class="text-2xl font-serif-nabi text-[#46141D]">Test de Ubicación Nabi</h3>
                 <p class="text-xs text-slate-500 mt-1">Descubre en qué nivel comenzar según tu experiencia actual.</p>
             </div>
@@ -803,14 +988,15 @@
                         <option value="B2 / C1 Avanzado">Busco perfeccionamiento o certificación oficial</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full py-3.5 bg-[#EE9FB2] hover:bg-[#FADCE4] text-[#46141D] font-extrabold rounded-xl transition">
-                    Ver mi Nivel Recomendado
+                <button type="submit" class="w-full py-3.5 bg-[#EE9FB2] hover:bg-[#FADCE4] text-[#46141D] font-extrabold rounded-xl transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Solicitar Evaluación al +52 1 833 252 2060</span>
                 </button>
             </form>
         </div>
     </div>
 
     <!-- JavaScript -->
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>

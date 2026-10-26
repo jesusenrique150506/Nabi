@@ -149,13 +149,13 @@ function selectLanguage(langKey) {
 
     // 1. Actualizar botones del Menú Dock
     document.querySelectorAll('.dock-btn').forEach(btn => {
-        btn.classList.remove('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md', 'scale-105');
+        btn.classList.remove('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md', 'sm:scale-105');
         btn.classList.add('text-[#FADCE4]', 'hover:bg-white/10');
     });
     const activeDock = document.getElementById(`dock-${langKey}`);
     if (activeDock) {
         activeDock.classList.remove('text-[#FADCE4]', 'hover:bg-white/10');
-        activeDock.classList.add('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md', 'scale-105');
+        activeDock.classList.add('bg-[#EE9FB2]', 'text-[#46141D]', 'shadow-md', 'sm:scale-105');
     }
 
     // 2. Actualizar selección en las tarjetas Bento
@@ -201,7 +201,7 @@ function selectLanguage(langKey) {
     // Renderizar Sub-pestaña 1: Niveles con animación en cascada
     const levelsList = document.getElementById('levelsList');
     levelsList.innerHTML = data.levels.map((lvl, idx) => `
-        <div style="animation-delay: ${idx * 75}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 hover:-translate-y-1 transition duration-300 space-y-1.5">
+        <div style="animation-delay: ${idx * 70}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 sm:hover:-translate-y-1 transition duration-300 space-y-1.5">
             <div class="flex items-center justify-between">
                 <span class="px-2.5 py-0.5 rounded-lg bg-[#46141D] text-[#FBDBAA] text-[11px] font-extrabold">${lvl.code}</span>
                 <i class="fa-solid fa-circle-check text-[#8C2D41] text-xs"></i>
@@ -214,12 +214,12 @@ function selectLanguage(langKey) {
     // Renderizar Sub-pestaña 2: Modalidades con animación en cascada
     const modalitiesList = document.getElementById('modalitiesList');
     modalitiesList.innerHTML = data.modalities.map((mod, idx) => `
-        <div style="animation-delay: ${idx * 75}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 hover:-translate-y-1 transition duration-300 flex items-start gap-3.5">
+        <div style="animation-delay: ${idx * 70}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 sm:hover:-translate-y-1 transition duration-300 flex items-start gap-3.5">
             <div class="w-10 h-10 rounded-xl bg-[#FADCE4] text-[#46141D] flex items-center justify-center shrink-0 font-bold">
                 <i class="fa-solid ${mod.icon}"></i>
             </div>
-            <div class="space-y-1">
-                <div class="flex items-center gap-2">
+            <div class="space-y-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-1.5">
                     <h5 class="font-extrabold text-sm text-[#46141D]">${mod.title}</h5>
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#46141D]/10 text-[#46141D]">${mod.tag}</span>
                 </div>
@@ -231,7 +231,7 @@ function selectLanguage(langKey) {
     // Renderizar Sub-pestaña 3: Ventajas y Certificación con animación en cascada
     const advantagesList = document.getElementById('advantagesList');
     advantagesList.innerHTML = data.advantages.map((adv, idx) => `
-        <div style="animation-delay: ${idx * 85}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 hover:translate-x-1 transition duration-300 flex items-center gap-3.5">
+        <div style="animation-delay: ${idx * 80}ms" class="stagger-item p-4 rounded-2xl bg-[#FDF8F9] border border-[#EE9FB2]/30 hover:border-[#46141D]/40 sm:hover:translate-x-1 transition duration-300 flex items-center gap-3.5">
             <div class="w-8 h-8 rounded-full bg-[#46141D] text-[#EE9FB2] flex items-center justify-center shrink-0 text-xs">
                 <i class="fa-solid fa-star"></i>
             </div>
@@ -250,7 +250,6 @@ function switchSubTab(tabName) {
     const targetContent = document.getElementById(`subcontent-${tabName}`);
     if (targetContent) {
         targetContent.classList.remove('hidden');
-        // Re-trigger stagger animations inside the tab
         targetContent.querySelectorAll('.stagger-item').forEach(item => {
             item.classList.remove('stagger-item');
             void item.offsetWidth;
@@ -346,7 +345,7 @@ function copyPhoneNumber() {
             const label = document.getElementById('copyPhoneText');
             if (label) {
                 label.textContent = '¡Copiado!';
-                setTimeout(() => { label.textContent = 'Copiar'; }, 2500);
+                setTimeout(() => { label.textContent = 'Copiar número'; }, 2500);
             }
             showNotification(`Número ${NABI_PHONE_DISPLAY} copiado al portapapeles.`);
         });
@@ -393,7 +392,7 @@ function handleLevelSubmit(e) {
 }
 
 // ==========================================
-// CONTROL INTERACTIVO DEL MENÚ BLANCO DE IDIOMAS
+// CONTROL INTERACTIVO DEL MENÚ BLANCO Y MENÚ MÓVIL/TABLET
 // ==========================================
 function toggleMegaMenu(e) {
     if (e) e.stopPropagation();
@@ -431,6 +430,37 @@ function closeMegaMenu() {
     if (chevron) chevron.classList.remove('rotate-180');
 }
 
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    if (!mobileMenu) return;
+
+    const isHidden = mobileMenu.classList.contains('hidden');
+    if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('mobile-menu-animate');
+        if (menuIcon) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+        }
+    } else {
+        closeMobileMenu();
+    }
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('mobile-menu-animate');
+    }
+    if (menuIcon) {
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+    }
+}
+
 document.addEventListener('click', (e) => {
     const container = document.getElementById('navDropdownContainer');
     if (container && !container.contains(e.target)) {
@@ -441,14 +471,11 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeMegaMenu();
+        closeMobileMenu();
         closeModal('trialModal');
         closeModal('levelModal');
     }
 });
-
-function toggleMobileMenu() {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-}
 
 function openTrialWithLang(langName) {
     const select = document.getElementById('trialLangSelect');
@@ -468,8 +495,8 @@ function closeModal(id) {
 
 function showNotification(message) {
     const toast = document.createElement('div');
-    toast.className = 'fixed bottom-20 right-6 z-50 bg-[#46141D] text-white px-6 py-4 rounded-2xl shadow-2xl border border-[#EE9FB2] flex items-center gap-3 panel-animate';
-    toast.innerHTML = `<span class="text-xl">🦋</span><span class="text-xs sm:text-sm font-bold">${message}</span>`;
+    toast.className = 'fixed inset-x-4 bottom-20 sm:left-auto sm:right-6 sm:w-auto z-50 bg-[#46141D] text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-[#EE9FB2] flex items-center gap-3 panel-animate';
+    toast.innerHTML = `<span class="text-xl shrink-0">🦋</span><span class="text-xs sm:text-sm font-bold">${message}</span>`;
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 4200);
 }
@@ -478,7 +505,6 @@ function showNotification(message) {
 // INICIALIZAR ANIMACIONES MODERNAS (SCROLL REVEAL & SPOTLIGHT)
 // ==========================================
 function initModernAnimations() {
-    // 1. Scroll Reveal con IntersectionObserver
     const revealElements = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
@@ -487,14 +513,13 @@ function initModernAnimations() {
                     entry.target.classList.add('is-visible');
                 }
             });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.1 });
 
         revealElements.forEach(el => observer.observe(el));
     } else {
         revealElements.forEach(el => el.classList.add('is-visible'));
     }
 
-    // 2. Efecto Spotlight interactivo siguiendo el cursor en tarjetas Bento
     document.querySelectorAll('.lang-bento-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -508,6 +533,7 @@ function initModernAnimations() {
 
 document.addEventListener('DOMContentLoaded', () => {
     closeMegaMenu();
+    closeMobileMenu();
     selectLanguage('ingles');
     initModernAnimations();
 });

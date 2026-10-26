@@ -33,7 +33,58 @@ body {
 }
 
 /* ==========================================
-   1. MEGA MENU INTERACTIVO POR BOTÓN (RESPONSIVO)
+   1. BANDERAS SVG Y TEMAS PROPIOS POR IDIOMA
+   ========================================== */
+.flag-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.65rem;
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+.flag-badge svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Temas personalizados para el Panel Maestro según el idioma */
+.theme-panel-ingles {
+    background: linear-gradient(135deg, #172554 0%, #1E3A8A 48%, #46141D 100%);
+}
+
+.theme-panel-frances {
+    background: linear-gradient(135deg, #1E1B4B 0%, #312E81 48%, #581C3C 100%);
+}
+
+.theme-panel-italiano {
+    background: linear-gradient(135deg, #064E3B 0%, #115E59 45%, #46141D 100%);
+}
+
+.theme-panel-coreano {
+    background: linear-gradient(135deg, #46141D 0%, #701A3C 50%, #2C0B11 100%);
+}
+
+/* Bordes superiores temáticos en las tarjetas Bento */
+.bento-theme-ingles {
+    border-top: 4px solid #1D4ED8;
+}
+.bento-theme-frances {
+    border-top: 4px solid #4338CA;
+}
+.bento-theme-italiano {
+    border-top: 4px solid #047857;
+}
+.bento-theme-coreano {
+    border-top: 4px solid #BE123C;
+}
+
+/* ==========================================
+   2. MEGA MENU INTERACTIVO POR BOTÓN
    ========================================== */
 .mega-menu {
     display: none;
@@ -56,7 +107,6 @@ body {
     }
 }
 
-/* Animación suave para el menú móvil/tablet */
 @keyframes mobileDrawerDown {
     0% {
         opacity: 0;
@@ -73,7 +123,7 @@ body {
 }
 
 /* ==========================================
-   2. ANIMACIONES SCROLL REVEAL (ADAPTADAS A MÓVIL/TABLET)
+   3. ANIMACIONES SCROLL REVEAL (MÓVIL/TABLET/PC)
    ========================================== */
 .reveal {
     opacity: 0;
@@ -83,7 +133,6 @@ body {
     will-change: opacity, transform;
 }
 
-/* En escritorio aplicamos desplazamiento lateral; en móvil vertical para evitar desborde */
 @media (min-width: 768px) {
     .reveal.reveal-left {
         transform: translateX(-32px);
@@ -108,7 +157,7 @@ body {
 .delay-400 { transition-delay: 400ms; }
 
 /* ==========================================
-   3. CASCADA Y TRANSICIÓN DE PANELES
+   4. CASCADA Y TRANSICIÓN DE PANELES
    ========================================== */
 @keyframes panelFadeIn {
     0% {
@@ -142,7 +191,7 @@ body {
 }
 
 /* ==========================================
-   4. TARJETAS BENTO CON HOVER 3D & TOUCH FEEDBACK
+   5. TARJETAS BENTO CON HOVER 3D & TOUCH FEEDBACK
    ========================================== */
 .lang-bento-card {
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -156,7 +205,7 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 1.5rem;
-    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(238, 159, 178, 0.14), transparent 40%);
+    background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(238, 159, 178, 0.15), transparent 40%);
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -169,7 +218,6 @@ body {
     .lang-bento-card:hover {
         transform: translateY(-7px) scale(1.01);
         box-shadow: 0 24px 48px -12px rgba(70, 20, 29, 0.22);
-        border-color: rgba(238, 159, 178, 0.8);
     }
 }
 
@@ -178,12 +226,11 @@ body {
 }
 
 .lang-bento-card.selected-card {
-    border-color: var(--nabi-wine);
-    box-shadow: 0 20px 40px -14px rgba(70, 20, 29, 0.26), 0 0 0 2px var(--nabi-wine);
+    box-shadow: 0 20px 40px -14px rgba(70, 20, 29, 0.28), 0 0 0 2px var(--nabi-wine);
 }
 
 /* ==========================================
-   5. EFECTOS HERO, FLOTACIÓN Y SHIMMER
+   6. EFECTOS HERO, FLOTACIÓN Y SHIMMER
    ========================================== */
 @keyframes floatSlow {
     0%, 100% {
@@ -214,7 +261,6 @@ body {
     animation: driftButterfly 7s ease-in-out infinite;
 }
 
-/* Shimmer en botones principales */
 .btn-shimmer {
     position: relative;
     overflow: hidden;
@@ -247,7 +293,6 @@ body {
     }
 }
 
-/* Gradiente animado para texto destacado */
 .text-gradient-animated {
     background: linear-gradient(90deg, #EE9FB2, #FBDBAA, #FADCE4, #EE9FB2);
     background-size: 200% auto;
@@ -263,7 +308,7 @@ body {
 }
 
 /* ==========================================
-   6. BOTÓN FLOTANTE DE WHATSAPP CON PULSO
+   7. BOTÓN FLOTANTE DE WHATSAPP Y ONDA DE VOZ
    ========================================== */
 @keyframes whatsappPulse {
     0% {
@@ -281,7 +326,6 @@ body {
     animation: whatsappPulse 2.4s infinite;
 }
 
-/* Onda de voz cuando se reproduce el audio */
 @keyframes soundWave {
     0%, 100% { height: 4px; }
     50% { height: 14px; }
@@ -299,7 +343,16 @@ body {
 .speaking .wave-bar:nth-child(2) { animation: soundWave 0.5s ease-in-out infinite 0.15s; }
 .speaking .wave-bar:nth-child(3) { animation: soundWave 0.5s ease-in-out infinite 0.3s; }
 
-/* Custom scrollbar */
+/* Honeypot oculto para protección anti-bots */
+.hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }

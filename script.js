@@ -119,7 +119,7 @@ const languagesData = {
         },
         levels: [
             { code: "Nivel 1", name: "Hangul & Coreano Básico", desc: "Lectura y escritura del alfabeto coreano (Hangul), pronunciación y frases esenciales." },
-            { code: "TOPIK I", name: " Elemental (Niveles 1 y 2)", desc: "Conversaciones del día a día, niveles de cortesía coreanos y comprensión de K-Culture." },
+            { code: "TOPIK I", name: "Elemental (Niveles 1 y 2)", desc: "Conversaciones del día a día, niveles de cortesía coreanos y comprensión de K-Culture." },
             { code: "TOPIK II", name: "Intermedio - Avanzado (3 a 6)", desc: "Coreano académico y profesional, preparación para becas GKS y universidades en Corea." },
             { code: "HALLYU", name: "Club K-Culture & Conversación", desc: "Práctica auditiva con escenas reales, expresiones juveniles, modismos y caligrafía." }
         ],
@@ -278,20 +278,52 @@ function speakCurrentPhrase() {
     window.speechSynthesis.speak(utterance);
 }
 
+// Control interactivo del menú blanco de Idiomas mediante su botón respectivo
 function toggleMegaMenu(e) {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     const menu = document.getElementById('megaMenu');
-    menu.classList.toggle('active');
+    const btn = document.getElementById('idiomasMenuBtn');
+    const chevron = document.getElementById('idiomasChevron');
+    if (!menu) return;
+
+    const isHidden = menu.classList.contains('hidden');
+    if (isHidden) {
+        menu.classList.remove('hidden');
+        menu.classList.add('active');
+        if (btn) {
+            btn.setAttribute('aria-expanded', 'true');
+            btn.classList.add('bg-white/15', 'text-white', 'ring-1', 'ring-[#EE9FB2]/50');
+        }
+        if (chevron) chevron.classList.add('rotate-180');
+    } else {
+        closeMegaMenu();
+    }
 }
 
 function closeMegaMenu() {
     const menu = document.getElementById('megaMenu');
-    if (menu) menu.classList.remove('active');
+    const btn = document.getElementById('idiomasMenuBtn');
+    const chevron = document.getElementById('idiomasChevron');
+    if (menu) {
+        menu.classList.add('hidden');
+        menu.classList.remove('active');
+    }
+    if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('bg-white/15', 'text-white', 'ring-1', 'ring-[#EE9FB2]/50');
+    }
+    if (chevron) chevron.classList.remove('rotate-180');
 }
 
 document.addEventListener('click', (e) => {
     const container = document.getElementById('navDropdownContainer');
     if (container && !container.contains(e.target)) {
+        closeMegaMenu();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
         closeMegaMenu();
     }
 });
@@ -341,5 +373,6 @@ function handleLevelSubmit(e) {
 
 // Inicializar panel al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
+    closeMegaMenu();
     selectLanguage('ingles');
 });

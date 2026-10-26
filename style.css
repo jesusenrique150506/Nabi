@@ -24,19 +24,14 @@ body {
     font-family: 'DM Serif Display', Georgia, serif;
 }
 
-/* Mega menu transition */
+/* Mega menu interactive state (controlled via button click) */
 .mega-menu {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px) scale(0.98);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: none;
 }
 
-.group:hover .mega-menu,
 .mega-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
+    display: block;
+    animation: panelFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Modern Language Panel Hover & Active States */

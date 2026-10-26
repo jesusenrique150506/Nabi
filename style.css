@@ -1,6 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --nabi-wine: #46141D;
+    --nabi-wine-dark: #2C0B11;
+    --nabi-wine-light: #631F2C;
+    --nabi-pink: #EE9FB2;
+    --nabi-pink-light: #FADCE4;
+    --nabi-cream: #FBDBAA;
+    --nabi-surface: #FDF8F9;
+}
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--nabi-surface);
+    color: #2D181C;
+}
+
+.font-serif-nabi {
+    font-family: 'DM Serif Display', Georgia, serif;
+}
+
+/* Mega menu transition */
+.mega-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.98);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .mega-menu,
+.mega-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Modern Language Panel Hover & Active States */
+.lang-bento-card {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-bento-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 45px -12px rgba(70, 20, 29, 0.18);
+}
+
+.lang-bento-card.selected-card {
+    border-color: var(--nabi-wine);
+    box-shadow: 0 20px 40px -15px rgba(70, 20, 29, 0.25), 0 0 0 2px var(--nabi-wine);
+}
+
+/* Smooth fade-in for panel switching */
+@keyframes panelFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panel-animate {
+    animation: panelFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating animation for Hero Logo Card */
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.animate-float {
+    animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* Custom scrollbar for horizontal pill menus on mobile */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
